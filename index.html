@@ -18,31 +18,37 @@
         <label>活動日期<input id="date" type="date" value="2026-09-19"></label>
         <label>場地容量<input id="cap" type="number" value="160"></label>
       </div>
-      <div class="section"><div class="title"><div><h2>預售票</h2><p>經售票平台，會計算平台票抽。</p></div></div><div id="presaleFields"></div></div>
-      <div class="section"><div class="title"><div><h2>現場票</h2><p>現場直接購買，不計平台票抽。</p></div></div><div id="doorFields"></div></div>
-      <div class="section"><div class="title"><div><h2>場地方拆票級距</h2><p>門檻用「預售＋現場」總人數判斷，預售與現場可設定不同的主辦每張實拿。</p></div><button id="addVenue">＋新增級距</button></div><div id="venues"></div></div>
-      <div class="section"><div class="title"><div><h2>補助級距</h2><p>依總人數決定整場補助。</p></div><button id="addSubsidy">＋新增級距</button></div><div id="subsidies"></div></div>
+      <div class="section"><div class="title"><div><h2>預售票</h2><p>經售票平台，平台票抽與場地拆票都只計算預售票。</p></div></div><div id="presaleFields"></div></div>
+      <div class="section"><div class="title"><div><h2>現場票</h2><p>現場直接購買，不計平台票抽；場地拆票使用自己的現場票級距。</p></div></div><div id="doorFields"></div></div>
+      <div class="section"><div class="title"><div><h2>補助級距</h2><p>補助仍依「預售＋現場」總入場人數判斷。</p></div><button id="addSubsidy">＋新增級距</button></div><div id="subsidies"></div></div>
       <div class="section"><div class="title"><h2>活動成本</h2><button id="addCost">＋新增成本</button></div><div id="costs"></div></div>
     </section>
     <aside class="card summary">
-      <div class="sumhead"><div><small>LIVE FORECAST · v3.1</small><h2 id="title">Soul Out Vol.11</h2></div><b><span id="shownNow">0</span> / <span id="shownCap">160</span></b></div>
+      <div class="sumhead"><div><small>LIVE FORECAST · v4</small><h2 id="title">Soul Out Vol.11</h2></div><b><span id="shownNow">0</span> / <span id="shownCap">160</span></b></div>
       <div class="kpis">
         <div><span>預售票營收</span><strong id="preRevenue">$0</strong></div>
         <div><span>現場票營收</span><strong id="doorRevenue">$0</strong></div>
         <div><span>票面總營收</span><strong id="gross">$0</strong></div>
         <div><span>平台票抽（只算預售）</span><strong id="fees">$0</strong></div>
-        <div><span>場地拆分後主辦收入</span><strong id="venueRev">$0</strong></div>
+        <div><span>預售｜場地拆分後收入</span><strong id="preVenueRev">$0</strong></div>
+        <div><span>現場｜場地拆分後收入</span><strong id="doorVenueRev">$0</strong></div>
+        <div><span>場地拆分後主辦總收入</span><strong id="venueRev">$0</strong></div>
         <div><span>補助</span><strong id="subsidy">$0</strong></div>
         <div><span>活動總成本</span><strong id="cost">$0</strong></div>
         <div><span>總入場人數</span><strong id="totalPeople">0 人</strong></div>
       </div>
       <div class="profit"><span>預估淨利</span><strong id="profit">$0</strong><small id="margin">淨利率 0%</small></div>
-      <div class="meta"><div><span>損益兩平</span><strong id="be">—</strong></div><div><span>套用場地級距</span><strong id="venueTier">—</strong></div><div><span>套用補助級距</span><strong id="subTier">—</strong></div></div>
+      <div class="meta">
+        <div><span>損益兩平</span><strong id="be">—</strong></div>
+        <div><span>預售套用拆票級距</span><strong id="preTierApplied">—</strong></div>
+        <div><span>現場套用拆票級距</span><strong id="doorTierApplied">—</strong></div>
+        <div><span>套用補助級距</span><strong id="subTier">—</strong></div>
+      </div>
       <div class="chart"><canvas id="chart"></canvas></div>
-      <p class="note">平台票抽只計算預售票：預售張數 × 每張票抽。現場票不計票抽。場地與補助門檻皆以預售＋現場的總人數判斷。</p>
+      <p class="note">預售與現場票使用兩套完全獨立的場地拆票級距：預售級距只看預售張數；現場級距只看現場票張數。補助才看總入場人數。</p>
     </aside>
   </main>
 </div>
-<script src="app-v3.js"></script>
+<script src="app-v4.js"></script>
 </body>
 </html>
