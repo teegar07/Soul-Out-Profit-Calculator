@@ -24,7 +24,7 @@
       <div class="section"><div class="title"><h2>活動成本</h2><button id="addCost">＋新增成本</button></div><div id="costs"></div></div>
     </section>
     <aside class="card summary">
-      <div class="sumhead"><div><small>LIVE FORECAST · v5</small><h2 id="title">Soul Out Vol.11</h2></div><b><span id="shownNow">0</span> / <span id="shownCap">160</span></b></div>
+      <div class="sumhead"><div><small>LIVE FORECAST · v6</small><h2 id="title">Soul Out Vol.11</h2></div><b><span id="shownNow">0</span> / <span id="shownCap">160</span></b></div>
       <div class="kpis">
         <div><span>預售票營收</span><strong id="preRevenue">$0</strong></div>
         <div><span>現場票營收</span><strong id="doorRevenue">$0</strong></div>
@@ -32,7 +32,8 @@
         <div><span>平台票抽（只算預售）</span><strong id="fees">$0</strong></div>
         <div><span>預售｜場地拆分後收入</span><strong id="preVenueRev">$0</strong></div>
         <div><span>現場｜場地拆分後收入</span><strong id="doorVenueRev">$0</strong></div>
-        <div><span>場地拆分後主辦總收入</span><strong id="venueRev">$0</strong></div>
+        <div><span>場地拆分後收入（票抽前）</span><strong id="venueBeforeFees">$0</strong></div>
+        <div><span>主辦總收入（已扣票抽）</span><strong id="venueRev">$0</strong></div>
         <div><span>補助</span><strong id="subsidy">$0</strong></div>
         <div><span>活動總成本</span><strong id="cost">$0</strong></div>
         <div><span>總入場人數</span><strong id="totalPeople">0 人</strong></div>
@@ -45,10 +46,10 @@
         <div><span>套用補助級距</span><strong id="subTier">—</strong></div>
       </div>
       <div class="chart"><canvas id="chart"></canvas></div>
-      <p class="note">預售與現場票的「每張主辦實拿」可以不同，但兩者拆票級距的門檻都以預售＋現場的總人數判斷。補助同樣以總人數判斷。</p>
+      <p class="note">主辦總收入＝預售場地拆分後收入＋現場場地拆分後收入－平台票抽。預估淨利＝主辦總收入＋補助－活動總成本。</p>
     </aside>
   </main>
 </div>
-<script src="app-v5.js"></script>
+<script src="app-v6.js"></script>
 </body>
 </html>
