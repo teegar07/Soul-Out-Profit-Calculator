@@ -4,12 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Soul Out｜活動收益模擬器</title>
-  <link rel="stylesheet" href="style-v2.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style-v3.css">
 </head>
 <body>
 <div class="wrap">
-  <header><div><small>SOUL OUT TOOL</small><h1>活動收益模擬器</h1></div><button id="reset">重設範例</button></header>
+  <header><div><small>SOUL OUT TOOL · v7</small><h1>活動收益模擬器</h1></div><button id="reset">重設範例</button></header>
   <main>
     <section class="card controls">
       <h2>基本資料</h2>
@@ -18,38 +17,29 @@
         <label>活動日期<input id="date" type="date" value="2026-09-19"></label>
         <label>場地容量<input id="cap" type="number" value="160"></label>
       </div>
-      <div class="section"><div class="title"><div><h2>預售票</h2><p>經售票平台；平台票抽只計算預售票。場地拆票級距門檻看「預售＋現場」總人數，但金額只套用到預售票。</p></div></div><div id="presaleFields"></div></div>
-      <div class="section"><div class="title"><div><h2>現場票</h2><p>現場直接購買，不計平台票抽。場地拆票級距門檻同樣看「預售＋現場」總人數，但金額只套用到現場票。</p></div></div><div id="doorFields"></div></div>
-      <div class="section"><div class="title"><div><h2>補助級距</h2><p>補助依「預售＋現場」總入場人數判斷，並納入主辦總收入。</p></div><button id="addSubsidy">＋新增級距</button></div><div id="subsidies"></div></div>
+      <div class="section"><div class="title"><div><h2>預售票條件</h2><p>不再輸入單一預售張數，系統會依你設定的試算間隔自動產生不同預售張數情境。</p></div></div><div id="presaleFields"></div></div>
+      <div class="section"><div class="title"><div><h2>現場票</h2><p>現場票張數由你固定輸入；每個預售情境都會使用同一個現場票張數。</p></div></div><div id="doorFields"></div></div>
+      <div class="section"><div class="title"><div><h2>補助級距</h2><p>依預售＋現場總人數判斷，並納入主辦總收入。</p></div><button id="addSubsidy">＋新增級距</button></div><div id="subsidies"></div></div>
       <div class="section"><div class="title"><h2>活動成本</h2><button id="addCost">＋新增成本</button></div><div id="costs"></div></div>
     </section>
-    <aside class="card summary">
-      <div class="sumhead"><div><small>LIVE FORECAST · v6.1</small><h2 id="title">Soul Out Vol.11</h2></div><b><span id="shownNow">0</span> / <span id="shownCap">160</span></b></div>
-      <div class="kpis">
-        <div><span>預售票營收</span><strong id="preRevenue">$0</strong></div>
-        <div><span>現場票營收</span><strong id="doorRevenue">$0</strong></div>
-        <div><span>票面總營收</span><strong id="gross">$0</strong></div>
-        <div><span>平台票抽（只算預售）</span><strong id="fees">$0</strong></div>
-        <div><span>預售｜場地拆分後收入</span><strong id="preVenueRev">$0</strong></div>
-        <div><span>現場｜場地拆分後收入</span><strong id="doorVenueRev">$0</strong></div>
-        <div><span>場地拆分後收入（票抽前）</span><strong id="venueBeforeFees">$0</strong></div>
-        <div><span>補助</span><strong id="subsidy">$0</strong></div>
-        <div><span>主辦總收入（已扣票抽＋含補助）</span><strong id="venueRev">$0</strong></div>
-        <div><span>活動總成本</span><strong id="cost">$0</strong></div>
-        <div><span>總入場人數</span><strong id="totalPeople">0 人</strong></div>
+
+    <section class="card results">
+      <div class="title"><div><h2>預售票收益級距表</h2><p>輸入上方條件後，這裡會自動重新計算全部預售情境。</p></div></div>
+      <div class="summary-strip">
+        <div><span>固定現場票</span><strong id="doorSummary">0 張</strong></div>
+        <div><span>活動總成本</span><strong id="costSummary">$0</strong></div>
+        <div><span>損益兩平</span><strong id="breakEvenSummary">—</strong></div>
       </div>
-      <div class="profit"><span>預估淨利</span><strong id="profit">$0</strong><small id="margin">淨利率 0%</small></div>
-      <div class="meta">
-        <div><span>損益兩平</span><strong id="be">—</strong></div>
-        <div><span>預售套用拆票級距</span><strong id="preTierApplied">—</strong></div>
-        <div><span>現場套用拆票級距</span><strong id="doorTierApplied">—</strong></div>
-        <div><span>套用補助級距</span><strong id="subTier">—</strong></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>預售</th><th>現場</th><th>總人數</th><th>平台票抽</th><th>預售拆分後</th><th>現場拆分後</th><th>補助</th><th>主辦總收入</th><th>活動成本</th><th>預估淨利</th></tr></thead>
+          <tbody id="scenarioBody"></tbody>
+        </table>
       </div>
-      <div class="chart"><canvas id="chart"></canvas></div>
-      <p class="note">主辦總收入＝預售場地拆分後收入＋現場場地拆分後收入－平台票抽＋補助。預估淨利＝主辦總收入－活動總成本。</p>
-    </aside>
+      <p class="note">主辦總收入＝預售拆分後收入＋現場拆分後收入－平台票抽＋補助。綠色列為依目前試算間隔計算出的第一個不虧損情境。</p>
+    </section>
   </main>
 </div>
-<script src="app-v6.js"></script>
+<script src="app-v7.js"></script>
 </body>
 </html>
