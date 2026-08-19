@@ -22,43 +22,14 @@
         <label>場地容量<input id="cap" type="number" value="160"></label>
         <label>目前售票<input id="now" type="number" value="25"></label>
       </div>
-
-      <div class="section">
-        <div class="title"><h2>票種</h2><button id="addTicket">＋新增票種</button></div>
-        <div id="tickets"></div>
-      </div>
-
-      <div class="section">
-        <div class="title">
-          <div><h2>場地方拆票級距</h2><p>依總售票張數決定主辦方每張實拿。</p></div>
-          <button id="addVenue">＋新增級距</button>
-        </div>
-        <div id="venues"></div>
-      </div>
-
-      <div class="section">
-        <div class="title">
-          <div><h2>補助級距</h2><p>依總售票張數決定整場補助。</p></div>
-          <button id="addSubsidy">＋新增級距</button>
-        </div>
-        <div id="subsidies"></div>
-      </div>
-
-      <div class="section">
-        <div class="title"><h2>活動成本</h2><button id="addCost">＋新增成本</button></div>
-        <div id="costs"></div>
-      </div>
+      <div class="section"><div class="title"><h2>票種</h2><button id="addTicket">＋新增票種</button></div><div id="tickets"></div></div>
+      <div class="section"><div class="title"><div><h2>場地方拆票級距</h2><p>依總售票張數決定主辦方每張實拿。</p></div><button id="addVenue">＋新增級距</button></div><div id="venues"></div></div>
+      <div class="section"><div class="title"><div><h2>補助級距</h2><p>依總售票張數決定整場補助。</p></div><button id="addSubsidy">＋新增級距</button></div><div id="subsidies"></div></div>
+      <div class="section"><div class="title"><h2>活動成本</h2><button id="addCost">＋新增成本</button></div><div id="costs"></div></div>
     </section>
-
     <aside class="card summary">
-      <div class="sumhead">
-        <div><small>LIVE FORECAST</small><h2 id="title">Soul Out Vol.11</h2></div>
-        <b><span id="shownNow">25</span> / <span id="shownCap">160</span></b>
-      </div>
-      <div class="slider">
-        <div><span>模擬售票張數</span><strong id="simLabel">120 張</strong></div>
-        <input id="sim" type="range" min="0" max="160" value="120">
-      </div>
+      <div class="sumhead"><div><small>LIVE FORECAST · v2</small><h2 id="title">Soul Out Vol.11</h2></div><b><span id="shownNow">25</span> / <span id="shownCap">160</span></b></div>
+      <div class="slider"><div><span>模擬售票張數</span><strong id="simLabel">120 張</strong></div><input id="sim" type="range" min="0" max="160" value="120"></div>
       <div class="kpis">
         <div><span>票面總營收</span><strong id="gross">$0</strong></div>
         <div><span>票抽</span><strong id="fees">$0</strong></div>
@@ -66,20 +37,13 @@
         <div><span>補助</span><strong id="subsidy">$0</strong></div>
         <div><span>活動總成本</span><strong id="cost">$0</strong></div>
       </div>
-      <div class="profit">
-        <span>預估淨利</span><strong id="profit">$0</strong><small id="margin">淨利率 0%</small>
-      </div>
-      <div class="meta">
-        <div><span>損益兩平</span><strong id="be">—</strong></div>
-        <div><span>套用場地級距</span><strong id="venueTier">—</strong></div>
-        <div><span>套用補助級距</span><strong id="subTier">—</strong></div>
-        <div><span>目前售票預估淨利</span><strong id="nowProfit">$0</strong></div>
-      </div>
+      <div class="profit"><span>預估淨利</span><strong id="profit">$0</strong><small id="margin">淨利率 0%</small></div>
+      <div class="meta"><div><span>損益兩平</span><strong id="be">—</strong></div><div><span>套用場地級距</span><strong id="venueTier">—</strong></div><div><span>套用補助級距</span><strong id="subTier">—</strong></div><div><span>目前售票預估淨利</span><strong id="nowProfit">$0</strong></div></div>
       <div class="chart"><canvas id="chart"></canvas></div>
-      <p class="note">「票抽」獨立顯示，不列入活動總成本。場地級距填的是主辦方依該級距「每張實拿」金額，因此預估淨利＝場地拆分後主辦收入＋補助－活動成本。</p>
+      <p class="note">活動總成本只加總「活動成本」欄位。票抽只獨立顯示，不會加進活動總成本。</p>
     </aside>
   </main>
 </div>
-<script src="app.js"></script>
+<script src="app-v2.js"></script>
 </body>
 </html>
