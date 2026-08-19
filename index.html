@@ -18,13 +18,13 @@
         <label>活動日期<input id="date" type="date" value="2026-09-19"></label>
         <label>場地容量<input id="cap" type="number" value="160"></label>
       </div>
-      <div class="section"><div class="title"><div><h2>預售票</h2><p>經售票平台，平台票抽與場地拆票都只計算預售票。</p></div></div><div id="presaleFields"></div></div>
-      <div class="section"><div class="title"><div><h2>現場票</h2><p>現場直接購買，不計平台票抽；場地拆票使用自己的現場票級距。</p></div></div><div id="doorFields"></div></div>
-      <div class="section"><div class="title"><div><h2>補助級距</h2><p>補助仍依「預售＋現場」總入場人數判斷。</p></div><button id="addSubsidy">＋新增級距</button></div><div id="subsidies"></div></div>
+      <div class="section"><div class="title"><div><h2>預售票</h2><p>經售票平台；平台票抽只計算預售票。場地拆票級距門檻看「預售＋現場」總人數，但金額只套用到預售票。</p></div></div><div id="presaleFields"></div></div>
+      <div class="section"><div class="title"><div><h2>現場票</h2><p>現場直接購買，不計平台票抽。場地拆票級距門檻同樣看「預售＋現場」總人數，但金額只套用到現場票。</p></div></div><div id="doorFields"></div></div>
+      <div class="section"><div class="title"><div><h2>補助級距</h2><p>補助依「預售＋現場」總入場人數判斷。</p></div><button id="addSubsidy">＋新增級距</button></div><div id="subsidies"></div></div>
       <div class="section"><div class="title"><h2>活動成本</h2><button id="addCost">＋新增成本</button></div><div id="costs"></div></div>
     </section>
     <aside class="card summary">
-      <div class="sumhead"><div><small>LIVE FORECAST · v4</small><h2 id="title">Soul Out Vol.11</h2></div><b><span id="shownNow">0</span> / <span id="shownCap">160</span></b></div>
+      <div class="sumhead"><div><small>LIVE FORECAST · v5</small><h2 id="title">Soul Out Vol.11</h2></div><b><span id="shownNow">0</span> / <span id="shownCap">160</span></b></div>
       <div class="kpis">
         <div><span>預售票營收</span><strong id="preRevenue">$0</strong></div>
         <div><span>現場票營收</span><strong id="doorRevenue">$0</strong></div>
@@ -45,10 +45,10 @@
         <div><span>套用補助級距</span><strong id="subTier">—</strong></div>
       </div>
       <div class="chart"><canvas id="chart"></canvas></div>
-      <p class="note">預售與現場票使用兩套完全獨立的場地拆票級距：預售級距只看預售張數；現場級距只看現場票張數。補助才看總入場人數。</p>
+      <p class="note">預售與現場票的「每張主辦實拿」可以不同，但兩者拆票級距的門檻都以預售＋現場的總人數判斷。補助同樣以總人數判斷。</p>
     </aside>
   </main>
 </div>
-<script src="app-v4.js"></script>
+<script src="app-v5.js"></script>
 </body>
 </html>
