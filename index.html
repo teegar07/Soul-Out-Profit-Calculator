@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="wrap">
-  <header><div><small>SOUL OUT TOOL · v7</small><h1>活動收益模擬器</h1></div><button id="reset">重設範例</button></header>
+  <header><div><small>SOUL OUT TOOL · v8</small><h1>活動收益模擬器</h1></div><button id="reset">重設範例</button></header>
   <main>
     <section class="card controls">
       <h2>基本資料</h2>
@@ -17,29 +17,29 @@
         <label>活動日期<input id="date" type="date" value="2026-09-19"></label>
         <label>場地容量<input id="cap" type="number" value="160"></label>
       </div>
-      <div class="section"><div class="title"><div><h2>預售票條件</h2><p>不再輸入單一預售張數，系統會依你設定的試算間隔自動產生不同預售張數情境。</p></div></div><div id="presaleFields"></div></div>
+      <div class="section"><div class="title"><div><h2>預售票條件</h2><p>設定票價、平台票抽、所得稅與試算間隔，系統自動產生不同預售張數情境。</p></div></div><div id="presaleFields"></div></div>
       <div class="section"><div class="title"><div><h2>現場票</h2><p>現場票張數由你固定輸入；每個預售情境都會使用同一個現場票張數。</p></div></div><div id="doorFields"></div></div>
       <div class="section"><div class="title"><div><h2>補助級距</h2><p>依預售＋現場總人數判斷，並納入主辦總收入。</p></div><button id="addSubsidy">＋新增級距</button></div><div id="subsidies"></div></div>
       <div class="section"><div class="title"><h2>活動成本</h2><button id="addCost">＋新增成本</button></div><div id="costs"></div></div>
     </section>
-
     <section class="card results">
       <div class="title"><div><h2>預售票收益級距表</h2><p>輸入上方條件後，這裡會自動重新計算全部預售情境。</p></div></div>
       <div class="summary-strip">
         <div><span>固定現場票</span><strong id="doorSummary">0 張</strong></div>
-        <div><span>活動總成本</span><strong id="costSummary">$0</strong></div>
+        <div><span>固定活動成本</span><strong id="costSummary">$0</strong></div>
+        <div><span>所得稅試算</span><strong id="taxSummary">未納入</strong></div>
         <div><span>損益兩平</span><strong id="breakEvenSummary">—</strong></div>
       </div>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>預售</th><th>現場</th><th>總人數</th><th>平台票抽</th><th>預售拆分後</th><th>現場拆分後</th><th>補助</th><th>主辦總收入</th><th>活動成本</th><th>預估淨利</th></tr></thead>
+          <thead><tr><th>預售</th><th>現場</th><th>總人數</th><th>平台票抽</th><th>平台轉帳預售收入</th><th>預售拆分後</th><th>現場拆分後</th><th>補助</th><th>所得稅成本</th><th>主辦總收入</th><th>總成本</th><th>預估淨利</th></tr></thead>
           <tbody id="scenarioBody"></tbody>
         </table>
       </div>
-      <p class="note">主辦總收入＝預售拆分後收入＋現場拆分後收入－平台票抽＋補助。綠色列為依目前試算間隔計算出的第一個不虧損情境。</p>
+      <p class="note">勾選所得稅後：所得稅成本＝（預售票價 × 預售張數－平台票抽）× 所得稅率。預估淨利＝主辦總收入－固定活動成本－所得稅成本。這是收益試算用的成本估算，可依你的實際稅務認定調整稅率或取消勾選。</p>
     </section>
   </main>
 </div>
-<script src="app-v7.js"></script>
+<script src="app-v8.js"></script>
 </body>
 </html>
